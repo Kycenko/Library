@@ -1,13 +1,16 @@
-﻿
+﻿using Library.Domain.Enums;
+
 namespace Library.Domain.Entities;
 
-public class User 
+public class User
 {
-
-	public Guid Id { get; set; }
+	public Guid UserId { get; set; }
 	public string? UserName { get; set; }
-	public string? UserPassword { get; set; }
-	public string? UserEmail { get; set; }
-	public DateTime? CreatedDate { get; set; }
+	public string? FirstName { get; set; }
+	public string? LastName { get; set; }
+	public string? PasswordHash { get; set; }
+	public string? Email { get; set; }
+	public UserRole Role { get; set; }
+ 	public DateTime? CreatedDate { get; set; }
 	public DateTime? UpdatedDate { get; set; }
 }
