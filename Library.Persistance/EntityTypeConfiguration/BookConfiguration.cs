@@ -10,12 +10,12 @@ namespace Library.Infrastructure.EntityTypeConfiguration
 		{
 			builder.HasKey(u => u.BookId);
 			builder.HasIndex(u => u.BookId).IsUnique();
-			builder.HasOne(b => b.Author)
-				.WithMany()
-				.HasForeignKey(b => b.AuthorId);
-			builder.HasOne(b => b.Category)
-				.WithMany()
-				.HasForeignKey(b => b.CategoryId);
+			// builder.HasOne(b => b.Author)
+			// 	.WithMany()
+			// 	.HasForeignKey(b => b.AuthorId);
+			// builder.HasOne(b => b.Category)
+			// 	.WithMany()
+			// 	.HasForeignKey(b => b.CategoryId);
 		}
 	}
 }

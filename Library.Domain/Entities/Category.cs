@@ -1,10 +1,13 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Library.Domain.Entities
 {
 	public class Category
 	{
-		public Guid CategoryId { get; set; }
-		public string? CategoryName { get; set; }
+		[Required(ErrorMessage = "CategoryId is required")]
+		public Guid CategoryId { get; set; } = Guid.NewGuid();
+
+		[Required(ErrorMessage = "CategoryName is required")]
+		public string CategoryName { get; set; }
 	}
 }

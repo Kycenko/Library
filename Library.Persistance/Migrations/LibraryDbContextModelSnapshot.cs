@@ -49,7 +49,6 @@ namespace Library.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid?>("CategoryId")
-                        .IsRequired()
                         .HasColumnType("uuid");
 
                     b.Property<decimal?>("Price")
@@ -136,9 +135,7 @@ namespace Library.Infrastructure.Migrations
 
                     b.HasOne("Library.Domain.Entities.Book", "Category")
                         .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CategoryId");
 
                     b.Navigation("Author");
 

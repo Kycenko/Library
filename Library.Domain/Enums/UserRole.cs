@@ -1,8 +1,14 @@
-﻿namespace Library.Domain.Enums;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
+namespace Library.Domain.Enums;
+[JsonConverter(typeof(JsonStringEnumConverter))]
 public enum UserRole
 {
-	Admin,
-	User,
-	Guest
+	[Display(Name = "ADMIN")]
+	ADMIN,
+	[Display(Name = "USER")]
+	USER,
+	[Display(Name = "GUEST")]
+	GUEST
 }

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.Infrastructure
 {
-	public class LibraryDbContext : DbContext, ILibraryDbContext
+	public class LibraryDbContext : DbContext
 	{
 		public DbSet<User> Users { get; set; }
 		public DbSet<Book> Books { get; set; }
@@ -15,6 +15,8 @@ namespace Library.Infrastructure
 
 		public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
 		{
+			Database.EnsureCreated();
+			//Database.Migrate();
 		}
 
 		protected override void OnModelCreating(ModelBuilder builder)
