@@ -1,4 +1,5 @@
-﻿using Library.Domain.Common.Interfaces.Services;
+﻿using Library.Application.Features.User;
+using Library.Domain.Common.Interfaces.Services;
 using Library.Domain.Entities;
 using Library.Infrastructure;
 using Microsoft.AspNetCore.Http;
@@ -55,6 +56,16 @@ namespace Library.WebApi.Controllers
 				return BadRequest();
 			}
 
+			var validator = new UserValidator();
+			var validationResult = await validator.ValidateAsync(newUser);
+
+			if (!validationResult.IsValid)
+			{
+				return BadRequest(validationResult.Errors);
+			}
+
+			string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newUser.PasswordHash);
+			newUser.PasswordHash = hashedPassword;
 			await _service.CreateUserAsync(newUser);
 			return CreatedAtAction("GetUsers", new { id = newUser.UserId }, newUser);
 		}

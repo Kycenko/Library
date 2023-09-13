@@ -13,4 +13,3 @@ namespace Library.Infrastructure.EntityTypeConfiguration
 		}
 	}
 }
-

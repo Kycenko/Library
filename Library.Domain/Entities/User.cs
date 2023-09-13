@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using Library.Domain.Enums;
 
 namespace Library.Domain.Entities;
 
 public class User
 {
-	[Required(ErrorMessage = "UserId is required")]
-	public Guid UserId { get; set; } = Guid.NewGuid();
+	[Key] public Guid UserId { get; set; } = Guid.NewGuid();
 
 	[Required(ErrorMessage = "UserName is required")]
 	public string UserName { get; set; }

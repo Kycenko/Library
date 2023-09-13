@@ -1,4 +1,5 @@
-﻿using Library.Domain.Common.Interfaces.Repositories;
+﻿using FluentValidation;
+using Library.Domain.Common.Interfaces.Repositories;
 using Library.Domain.Common.Interfaces.Services;
 using Library.Domain.Entities;
 
@@ -7,7 +8,6 @@ namespace Library.Application.Services;
 public class UserService : IUserService
 {
 	private readonly IUserRepository _repository;
-	
 
 	public UserService(IUserRepository repository)
 	{
@@ -17,7 +17,6 @@ public class UserService : IUserService
 	public async Task CreateUserAsync(User newUser)
 	{
 		await _repository.CreateUserAsync(newUser);
-		
 	}
 
 

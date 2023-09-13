@@ -1,6 +1,6 @@
 ﻿namespace Library.Domain.Common;
 
-public interface IBaseEntity
+public abstract class BaseEntity
 {
 	Guid Id { get; set; }
 	DateTime CreatedDate { get; set; }
