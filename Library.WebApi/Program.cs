@@ -1,6 +1,9 @@
+using FluentValidation;
+using Library.Application.Features.User;
 using Library.Application.Services;
 using Library.Domain.Common.Interfaces.Repositories;
 using Library.Domain.Common.Interfaces.Services;
+using Library.Domain.Entities;
 using Library.Infrastructure;
 using Library.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -14,8 +17,12 @@ builder.Services.AddDbContext<LibraryDbContext>(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IValidator<User>, UserValidator>();
 
 var app = builder.Build();
 

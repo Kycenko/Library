@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Library.WebApi.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("[controller]")]
 	[ApiController]
 	public class UserController : ControllerBase
 	{

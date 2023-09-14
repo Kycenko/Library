@@ -1,23 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Library.Domain.Common;
 
 namespace Library.Domain.Entities
 {
-	public class Book
+	public class Book : BaseEntity
 	{
-		[Required(ErrorMessage = "BookId is required")]
-		public Guid BookId { get; set; } = Guid.NewGuid();
+		[Key] public Guid BookId { get; set; } = Guid.NewGuid();
 
 		[Required(ErrorMessage = "Title is required")]
-		public string Title { get; set; }
+		public string? Title { get; set; }
 
 		[Required(ErrorMessage = "AuthorId is required")]
 		public Guid AuthorId { get; set; }
 
 		[Required(ErrorMessage = "Author is required")]
-		public Author Author { get; set; }
+		public Author? Author { get; set; }
 
 		[Required(ErrorMessage = "Category is required")]
-		public Book Category { get; set; }
+		public Book? Category { get; set; }
 
 		[Required(ErrorMessage = "CategoryId is required")]
 		public Guid CategoryId { get; set; }

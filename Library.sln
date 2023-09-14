@@ -3,19 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.WebApi", "Library.WebApi\Library.WebApi.csproj", "{3CC1B85A-D7D6-4515-AD86-E84B22013E04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.WebApi", "Library.WebApi\Library.WebApi.csproj", "{3CC1B85A-D7D6-4515-AD86-E84B22013E04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Application", "Library.Application\Library.Application.csproj", "{7B2F6FC2-951F-4010-AC5A-6C0A3F678ED2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Application", "Library.Application\Library.Application.csproj", "{7B2F6FC2-951F-4010-AC5A-6C0A3F678ED2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Domain", "Library.Domain\Library.Domain.csproj", "{0D7797C1-22BA-4CEE-91EA-E5FC773B9D1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Domain", "Library.Domain\Library.Domain.csproj", "{0D7797C1-22BA-4CEE-91EA-E5FC773B9D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Persistance", "Library.Persistance\Library.Persistance.csproj", "{3944B2BC-65AE-4260-8045-D566F416A32F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.Persistance", "Library.Persistance\Library.Persistance.csproj", "{3944B2BC-65AE-4260-8045-D566F416A32F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{98025271-8B5F-40CB-87F7-033296D2505B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{CDD24569-38BF-4ED1-855E-9428A4979DDC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{9E79E194-FDB7-4E5B-A958-6CE3C896320F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BA1132F8-94BB-4CB0-A0A4-2277E4916CB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistance.Tests", "Persistance.Tests\Persistance.Tests.csproj", "{D32426A3-3511-45FA-AEEE-34A45BCAE7A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,10 @@ Global
 		{3944B2BC-65AE-4260-8045-D566F416A32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3944B2BC-65AE-4260-8045-D566F416A32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3944B2BC-65AE-4260-8045-D566F416A32F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D32426A3-3511-45FA-AEEE-34A45BCAE7A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D32426A3-3511-45FA-AEEE-34A45BCAE7A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D32426A3-3511-45FA-AEEE-34A45BCAE7A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D32426A3-3511-45FA-AEEE-34A45BCAE7A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{7B2F6FC2-951F-4010-AC5A-6C0A3F678ED2} = {98025271-8B5F-40CB-87F7-033296D2505B}
 		{0D7797C1-22BA-4CEE-91EA-E5FC773B9D1F} = {98025271-8B5F-40CB-87F7-033296D2505B}
 		{3944B2BC-65AE-4260-8045-D566F416A32F} = {CDD24569-38BF-4ED1-855E-9428A4979DDC}
+		{D32426A3-3511-45FA-AEEE-34A45BCAE7A4} = {BA1132F8-94BB-4CB0-A0A4-2277E4916CB5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CA8C558E-0DA9-4198-BCA0-0E0325209EDD}

@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Library.Domain.Common;
 
 namespace Library.Domain.Entities
 {
-	public class Category
+	public class Category : BaseEntity
 	{
-		[Required(ErrorMessage = "CategoryId is required")]
-		public Guid CategoryId { get; set; } = Guid.NewGuid();
+		[Key] public Guid CategoryId { get; set; } = Guid.NewGuid();
 
 		[Required(ErrorMessage = "CategoryName is required")]
-		public string CategoryName { get; set; }
+		public string? CategoryName { get; set; }
 	}
 }

@@ -20,7 +20,7 @@ public class UserService : IUserService
 	}
 
 
-	public async Task<IEnumerable<User>> GetAllUsersAsync()
+	public async Task<IEnumerable<User>?> GetAllUsersAsync()
 	{
 		return await _repository.GetAllUsersAsync();
 	}

@@ -4,15 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Library.Domain.Common;
 
 namespace Library.Domain.Entities
 {
-	public class Author
+	public class Author : BaseEntity
 	{
-		[Required(ErrorMessage = "AuthorId is required")]
-		public Guid AuthorId { get; set; } = Guid.NewGuid();
+		[Key] public Guid AuthorId { get; set; } = Guid.NewGuid();
 
 		[Required(ErrorMessage = "AuthorName is required")]
-		public string AuthorName { get; set; }
+		public string? AuthorName { get; set; }
 	}
 }
