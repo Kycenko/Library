@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using Library.Application.Repositories;
 using Library.Domain.Common.Interfaces.Repositories;
 using Library.Domain.Common.Interfaces.Services;
 using Library.Domain.Entities;

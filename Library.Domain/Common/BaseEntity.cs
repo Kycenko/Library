@@ -2,8 +2,8 @@
 
 public abstract class BaseEntity
 {
-	Guid Id { get; set; }
-	DateTime CreatedDate { get; set; }
-	DateTime? UpdatedDate { get; set; }
-	DateTime? DeletedDate { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public DateTime CreatedDate { get; set; }
+    public DateTime? UpdatedDate { get; set; }
+    //DateTime? DeletedDate { get; set; }
 }

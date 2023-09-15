@@ -1,5 +1,6 @@
 using FluentValidation;
 using Library.Application.Features.User;
+using Library.Application.Repositories;
 using Library.Application.Services;
 using Library.Domain.Common.Interfaces.Repositories;
 using Library.Domain.Common.Interfaces.Services;

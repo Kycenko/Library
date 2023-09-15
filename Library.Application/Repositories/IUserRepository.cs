@@ -1,8 +1,9 @@
 ﻿using Library.Domain.Entities;
 
-namespace Library.Domain.Common.Interfaces.Repositories;
+namespace Library.Application.Repositories;
 
-public interface IUserRepository
+
+public interface IUserRepository : IBaseRepository<User>
 {
 	public Task CreateUserAsync(User user);
 	public Task<IEnumerable<User>?> GetAllUsersAsync();

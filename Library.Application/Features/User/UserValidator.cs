@@ -11,13 +11,13 @@ public class UserValidator : AbstractValidator<User>
 			.NotEmpty().WithMessage("UserName is required")
 			.MaximumLength(15).WithMessage("UserName cannot exceed 50 characters");
 
-		RuleFor(user => user.FirstName)
-			.NotEmpty().WithMessage("FirstName is required")
-			.MaximumLength(20).WithMessage("FirstName cannot exceed 50 characters");
-
-		RuleFor(user => user.LastName)
-			.NotEmpty().WithMessage("LastName is required")
-			.MaximumLength(20).WithMessage("LastName cannot exceed 50 characters");
+		// RuleFor(user => user.FirstName)
+		// 	.NotEmpty().WithMessage("FirstName is required")
+		// 	.MaximumLength(20).WithMessage("FirstName cannot exceed 50 characters");
+		//
+		// RuleFor(user => user.LastName)
+		// 	.NotEmpty().WithMessage("LastName is required")
+		// 	.MaximumLength(20).WithMessage("LastName cannot exceed 50 characters");
 
 		RuleFor(user => user.PasswordHash)
 			.NotEmpty().WithMessage("PasswordHash is required")
@@ -28,18 +28,13 @@ public class UserValidator : AbstractValidator<User>
 			//.Matches("[!@#$%^&*]").WithMessage("Password must contain at least one special character (!@#$%^&*)");
 
 
-		RuleFor(user => user.Email)
-			.NotEmpty().WithMessage("Email is required")
-			.EmailAddress().WithMessage("Email is not valid")
-			.MaximumLength(50).WithMessage("Email cannot exceed 100 characters");
+		// RuleFor(user => user.Email)
+		// 	.NotEmpty().WithMessage("Email is required")
+		// 	.EmailAddress().WithMessage("Email is not valid")
+		// 	.MaximumLength(50).WithMessage("Email cannot exceed 100 characters");
 
 		RuleFor(user => user.Role)
 			.IsInEnum().WithMessage("Role is not valid");
-
-		RuleFor(user => user.CreatedDate)
-			.NotEmpty().WithMessage("CreatedDate is required");
-
-		RuleFor(user => user.UpdatedDate)
-			.NotEmpty().WithMessage("UpdatedDate is required");
+        
 	}
 }
