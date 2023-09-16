@@ -1,31 +1,23 @@
-using FluentValidation;
-using Library.Application.Features.User;
-using Library.Application.Repositories;
-using Library.Application.Services;
-using Library.Domain.Common.Interfaces.Repositories;
-using Library.Domain.Common.Interfaces.Services;
-using Library.Domain.Entities;
 using Library.Infrastructure;
-using Library.Infrastructure.Repositories;
+using Library.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.ConfigurePersistence(builder.Configuration);
+
 
 builder.Services.AddControllers();
-
-builder.Services.AddDbContext<LibraryDbContext>(options =>
-	options.UseNpgsql(builder.Configuration.GetConnectionString("Library")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<IValidator<User>, UserValidator>();
-
 var app = builder.Build();
+
+
+var serviceScope = app.Services.CreateScope();
+
+var dataContext = serviceScope.ServiceProvider.GetService<LibraryDbContext>();
+
 
 if (app.Environment.IsDevelopment())
 {

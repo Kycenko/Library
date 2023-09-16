@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
 using Library.Application.Repositories;
-using Library.Domain.Common.Interfaces.Repositories;
 using Library.Domain.Common.Interfaces.Services;
 using Library.Domain.Entities;
 
@@ -15,29 +14,29 @@ public class UserService : IUserService
 		_repository = repository;
 	}
 
-	public async Task CreateUserAsync(User newUser)
+	public async Task CreateUserAsync(User newUser, CancellationToken cancellationToken)
 	{
-		await _repository.CreateUserAsync(newUser);
+		await _repository.CreateUserAsync(newUser, cancellationToken);
 	}
 
 
-	public async Task<IEnumerable<User>?> GetAllUsersAsync()
+	public async Task<IEnumerable<User>?> GetAllUsersAsync(CancellationToken cancellationToken)
 	{
-		return await _repository.GetAllUsersAsync();
+		return await _repository.GetAllUsersAsync(cancellationToken);
 	}
 
-	public async Task<User?> GetUserAsync(Guid UserId)
+	public async Task<User?> GetUserAsync(Guid userId, CancellationToken cancellationToken)
 	{
-		return await _repository.GetUserAsync(UserId);
+		return await _repository.GetUserAsync(userId, cancellationToken);
 	}
 
-	public async Task<User?> UpdateUserAsync(Guid userId, User updatedUser)
+	public async Task<User?> UpdateUserAsync(Guid userId, User updatedUser, CancellationToken cancellationToken)
 	{
-		return await _repository.UpdateUserAsync(userId, updatedUser);
+		return await _repository.UpdateUserAsync(userId, updatedUser, cancellationToken);
 	}
 
-	public async Task<User?> DeleteUserAsync(Guid userId)
+	public async Task<User?> DeleteUserAsync(Guid userId, CancellationToken cancellationToken)
 	{
-		return await _repository.DeleteUserAsync(userId);
+		return await _repository.DeleteUserAsync(userId, cancellationToken);
 	}
 }

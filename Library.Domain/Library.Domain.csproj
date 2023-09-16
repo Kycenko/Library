@@ -7,6 +7,10 @@
 
 
 
+  <!--<ItemGroup>
+    <Folder Include="Common\Interfaces\Repositories\" />
+  </ItemGroup>-->
+
   </PropertyGroup>
 
 

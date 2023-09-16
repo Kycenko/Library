@@ -1,4 +1,4 @@
-﻿namespace Library.Domain.Common.Exceptions;
+﻿namespace Library.Application.Common.Exceptions;
 
 public class CreationException : Exception
 {

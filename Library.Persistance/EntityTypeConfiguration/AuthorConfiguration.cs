@@ -8,7 +8,9 @@ public class AuthorConfiguration : IEntityTypeConfiguration<Author>
 {
 	public void Configure(EntityTypeBuilder<Author> builder)
 	{
-		builder.HasKey(a => a.AuthorId);
-		builder.HasIndex(u => u.AuthorId).IsUnique();
+		builder.HasKey(a => a.Id);
+		builder.HasIndex(a => a.Id).IsUnique();
+		builder.Property(a => a.Id).IsRequired();
+		
 	}
 }

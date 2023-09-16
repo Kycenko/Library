@@ -5,27 +5,22 @@ namespace Library.Domain.Entities
 {
 	public class Book : BaseEntity
 	{
-		[Key] public Guid BookId { get; set; } = Guid.NewGuid();
-
-		[Required(ErrorMessage = "Title is required")]
 		public string? Title { get; set; }
 
-		[Required(ErrorMessage = "AuthorId is required")]
 		public Guid AuthorId { get; set; }
 
-		[Required(ErrorMessage = "Author is required")]
 		public Author? Author { get; set; }
 
-		[Required(ErrorMessage = "Category is required")]
-		public Book? Category { get; set; }
+		public Genre? Genre { get; set; }
 
-		[Required(ErrorMessage = "CategoryId is required")]
-		public Guid CategoryId { get; set; }
+		public Guid GenreId { get; set; }
 
-		[Required(ErrorMessage = "Price is required")]
+		public List<Publisher>? Publishers { get; set; }
+		
+		public List<Review>? Reviews { get; set; }
+		
 		public decimal Price { get; set; }
 
-		[Required(ErrorMessage = "PublicationDate is required")]
 		public DateTime PublicationDate { get; set; }
 	}
 }
