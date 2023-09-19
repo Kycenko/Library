@@ -1,8 +1,6 @@
 ﻿using FluentValidation;
 using Library.Application.Features.User;
 using Library.Application.Repositories;
-using Library.Application.Services;
-using Library.Domain.Common.Interfaces.Services;
 using Library.Domain.Entities;
 using Library.Infrastructure.Context;
 using Library.Infrastructure.Repositories;
@@ -20,7 +18,5 @@ public static class ServiceExtensions
 		services.AddDbContext<LibraryDbContext>(opt => opt.UseNpgsql(connectionString));
 		services.AddScoped<IUserRepository, UserRepository>();
 		services.AddScoped<IUnitOfWork, UnitOfWork>();
-		services.AddScoped<IUserService, UserService>();
-		services.AddScoped<IValidator<User>, UserValidator>();
 	}
 }

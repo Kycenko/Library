@@ -7,13 +7,12 @@ namespace Library.Infrastructure.Repositories;
 
 public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 {
-	private readonly LibraryDbContext _dbContext;
-	private readonly IUnitOfWork _unitOfWork;
+	protected readonly LibraryDbContext _dbContext;
 
-	protected BaseRepository(LibraryDbContext dbContext, IUnitOfWork unitOfWork)
+
+	protected BaseRepository(LibraryDbContext dbContext)
 	{
 		_dbContext = dbContext;
-		_unitOfWork = unitOfWork;
 	}
 
 	public void Create(T entity)
@@ -31,13 +30,13 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 		_dbContext.Update(entity);
 	}
 
-	public async Task<T?> GetById(Guid id)
+	public Task<T?> GetById(Guid id, CancellationToken cancellationToken)
 	{
-		return await _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id);
+		return _dbContext.Set<T>().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
 	}
 
-	public async Task<IEnumerable<T>?> GetAll()
+	public Task<List<T>> GetAll(CancellationToken cancellationToken)
 	{
-		return await _dbContext.Set<T>().ToListAsync();
+		return _dbContext.Set<T>().ToListAsync(cancellationToken);
 	}
 }

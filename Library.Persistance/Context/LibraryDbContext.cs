@@ -6,8 +6,7 @@ namespace Library.Infrastructure.Context
 {
 	public class LibraryDbContext : DbContext
 	{
-		public DbSet<Admin>? Admins { get; set; }
-		public DbSet<Customer>? Customers { get; set; }
+		public DbSet<User?>? Users { get; set; }
 		public DbSet<Book>? Books { get; set; }
 		public DbSet<Author>? Authors { get; set; }
 		public DbSet<Genre>? Genres { get; set; }
@@ -28,9 +27,6 @@ namespace Library.Infrastructure.Context
 
 		protected override void OnModelCreating(ModelBuilder builder)
 		{
-			builder.Entity<Admin>().ToTable("Admins");
-			builder.Entity<Customer>().ToTable("Customers");
-			//builder.Ignore<User>();
 			builder.ApplyConfiguration(new UserConfiguration());
 			builder.ApplyConfiguration(new AuthorConfiguration());
 			builder.ApplyConfiguration(new GenreConfiguration());

@@ -8,7 +8,6 @@ public class OrderItem : BaseEntity
 	public Guid BookId { get; set; }
 	public int Quantity { get; set; }
 	public decimal PricePerUnit { get; set; }
-
 	public Order? Order { get; set; }
 	public Book? Book { get; set; }
 }

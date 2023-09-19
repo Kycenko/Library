@@ -1,11 +1,10 @@
-﻿
-using Library.Domain.Common;
-using Library.Domain.Enums;
+﻿using Library.Domain.Enums;
 
-namespace Library.Domain.Entities;
+namespace Library.Application.Features.GetAllUsers;
 
-public class User : BaseEntity
+public class GetAllUsersResponse
 {
+	public Guid Id { get; set; }
 	public string? Login { get; set; }
 
 	public string? FirstName { get; set; }
@@ -16,4 +15,6 @@ public class User : BaseEntity
 	public string? PasswordHash { get; set; }
 
 	public UserRole Role { get; set; }
+	public DateTime CreatedDate { get; set; }
+	public DateTime? UpdatedDate { get; set; }
 }

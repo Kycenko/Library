@@ -3,9 +3,10 @@
 using FluentValidation;
 using Library.Domain.Entities;
 
-public class UserValidator : AbstractValidator<User>
+public class CreateUserValidator : AbstractValidator<User>
 {
-	public UserValidator()
+	public CreateUserValidator()
+
 	{
 		RuleFor(user => user.Login)
 			.NotEmpty().WithMessage("UserName is required")
@@ -21,17 +22,17 @@ public class UserValidator : AbstractValidator<User>
 
 		RuleFor(user => user.PasswordHash)
 			.NotEmpty().WithMessage("PasswordHash is required");
-			/*.MinimumLength(8).WithMessage("Password must be at least 8 characters long")
-			.Matches("[A-Z]").WithMessage("Password must contain at least one uppercase letter")
-			.Matches("[a-z]").WithMessage("Password must contain at least one lowercase letter")
-			.Matches("[0-9]").WithMessage("Password must contain at least one digit");*/
+		/*.MinimumLength(8).WithMessage("Password must be at least 8 characters long")
+		.Matches("[A-Z]").WithMessage("Password must contain at least one uppercase letter")
+		.Matches("[a-z]").WithMessage("Password must contain at least one lowercase letter")
+		.Matches("[0-9]").WithMessage("Password must contain at least one digit");*/
 		//.Matches("[!@#$%^&*]").WithMessage("Password must contain at least one special character (!@#$%^&*)");
 
 
-		/*RuleFor(user => user.Email)
+		RuleFor(user => user.Email)
 			.NotEmpty().WithMessage("Email is required")
 			.EmailAddress().WithMessage("Email is not valid")
-			.MaximumLength(50).WithMessage("Email cannot exceed 100 characters");*/
+			.MaximumLength(50).WithMessage("Email cannot exceed 100 characters");
 
 		RuleFor(user => user.Role)
 			.IsInEnum().WithMessage("Role is not valid");

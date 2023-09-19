@@ -1,9 +1,11 @@
+using Library.Application;
 using Library.Infrastructure;
 using Library.Infrastructure.Context;
-using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigurePersistence(builder.Configuration);
+builder.Services.ConfigureApplication();
 
 
 builder.Services.AddControllers();
