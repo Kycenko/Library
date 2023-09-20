@@ -1,12 +1,12 @@
 ﻿using Library.Domain.Entities;
-using Library.Infrastructure.EntityTypeConfiguration;
+using Library.Infrastructure.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Infrastructure.Context
 {
 	public class LibraryDbContext : DbContext
 	{
-		public DbSet<User?>? Users { get; set; }
+		public DbSet<User>? Users { get; set; }
 		public DbSet<Book>? Books { get; set; }
 		public DbSet<Author>? Authors { get; set; }
 		public DbSet<Genre>? Genres { get; set; }
@@ -18,11 +18,6 @@ namespace Library.Infrastructure.Context
 
 		public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
 		{
-			if (!Database.CanConnect())
-			{
-				Database.EnsureCreated();
-				Database.Migrate();
-			}
 		}
 
 		protected override void OnModelCreating(ModelBuilder builder)

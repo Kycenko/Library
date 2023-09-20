@@ -1,7 +1,6 @@
-﻿using Library.Application.Features.User;
-using MediatR;
+﻿using MediatR;
 
-namespace Library.Application.Features.CreateUser;
+namespace Library.Application.Queries.User;
 
 public sealed record CreateUserRequest(string Login, string FirstName, string LastName, string Email,
 	string PasswordHash) : IRequest<CreateUserResponse>;

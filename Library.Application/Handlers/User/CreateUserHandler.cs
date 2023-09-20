@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
-using FluentValidation;
-using Library.Application.Features.User;
+using Library.Application.Queries.User;
 using Library.Application.Repositories;
 using MediatR;
 
-namespace Library.Application.Features.CreateUser;
+namespace Library.Application.Handlers.User;
 
 public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, CreateUserResponse>
 {
@@ -22,7 +21,10 @@ public sealed class CreateUserHandler : IRequestHandler<CreateUserRequest, Creat
 	public async Task<CreateUserResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
 	{
 		var user = _mapper.Map<Domain.Entities.User>(request);
+		string hashedPassword = BCrypt.Net.BCrypt.HashPassword(request.PasswordHash);
+		user.PasswordHash = hashedPassword;
 		_userRepository.Create(user);
+
 		await _unitOfWork.Save(cancellationToken);
 
 		return _mapper.Map<CreateUserResponse>(user);

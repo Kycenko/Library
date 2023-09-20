@@ -1,8 +1,8 @@
 ﻿using Library.Domain.Enums;
 
-namespace Library.Application.Features.GetAllUsers;
+namespace Library.Application.Queries.User;
 
-public class GetAllUsersResponse
+public sealed record CreateUserResponse 
 {
 	public Guid Id { get; set; }
 	public string? Login { get; set; }
@@ -17,4 +17,5 @@ public class GetAllUsersResponse
 	public UserRole Role { get; set; }
 	public DateTime CreatedDate { get; set; }
 	public DateTime? UpdatedDate { get; set; }
+	
 }

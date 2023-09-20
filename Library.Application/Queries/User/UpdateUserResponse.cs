@@ -1,10 +1,9 @@
 ﻿using Library.Domain.Enums;
 
-namespace Library.Application.Features.CreateUser;
+namespace Library.Application.Queries.User;
 
-public sealed record CreateUserResponse 
+public sealed record UpdateUserResponse
 {
-	public Guid Id { get; set; }
 	public string? Login { get; set; }
 
 	public string? FirstName { get; set; }
@@ -15,7 +14,5 @@ public sealed record CreateUserResponse
 	public string? PasswordHash { get; set; }
 
 	public UserRole Role { get; set; }
-	public DateTime CreatedDate { get; set; }
 	public DateTime? UpdatedDate { get; set; }
-	
 }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Library.Infrastructure.EntityTypeConfiguration;
+namespace Library.Infrastructure.Configurations;
 
 public class ReviewConfiguration : IEntityTypeConfiguration<Review>
 {

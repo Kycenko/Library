@@ -29,11 +29,4 @@
     </Reference>
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Reference Include="Library.Application">
-      <HintPath>..\Library.WebApi\bin\Debug\net7.0\Library.Application.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
