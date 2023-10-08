@@ -8,13 +8,8 @@ namespace Library.Infrastructure.Repositories
 {
 	public class UserRepository : BaseRepository<User>, IUserRepository
 	{
-		public UserRepository(LibraryDbContext context) : base(context)
-		{
-		}
+		public UserRepository(LibraryDbContext context) : base(context) { }
 
-		public async Task<User?> GetByEmail(string email, CancellationToken cancellationToken)
-		{
-			return await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email, cancellationToken);
-		}
-	}
+        public Task<User?> GetByEmail(string email, CancellationToken cancellationToken) => DbContext.Users.FirstOrDefaultAsync(u => u.Email == email, cancellationToken);
+    }
 }

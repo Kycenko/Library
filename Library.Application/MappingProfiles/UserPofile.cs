@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using Library.Application.Queries.User;
-using Library.Domain.Entities;
+using Library.Application.User.Commands;
+using Library.Application.User.Queries;
+
 
 namespace Library.Application.MappingProfiles;
 
@@ -8,8 +9,9 @@ public class UserProfile : Profile
 {
 	public UserProfile()
 	{
-		CreateMap<CreateUserRequest, User>();
-		CreateMap<User, CreateUserResponse>();
-		CreateMap<User, GetUserResponse>();
+		CreateMap<Domain.Entities.User, GetUserById>();
+		CreateMap<Domain.Entities.User, GetAllUsers>();
+		CreateMap<CreateUser, Domain.Entities.User>();
+		CreateMap<Domain.Entities.User, UpdateUser>();
 	}
 }

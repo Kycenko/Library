@@ -1,40 +1,25 @@
-﻿using Library.Application.Queries.User;
+﻿using Library.Application.User.Commands;
+using Library.Application.User.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Library.WebApi.Controllers
 {
-	[Route("[controller]")]
-	[ApiController]
-	public class UserController : ControllerBase
-	{
-		private readonly IMediator _mediator;
+    [Route("[controller]")]
+    [ApiController]
+    public class UserController : ControllerBase
+    {
+        private readonly IMediator _mediator;
+        public UserController(IMediator mediator) => _mediator = mediator;
 
-		public UserController(IMediator mediator)
-		{
-			_mediator = mediator;
-		}
+        [HttpGet("{userId}")]
+        public async Task<ActionResult> GetUserById(Guid userId) => Ok(await _mediator.Send(new GetUserById(userId)));
+        
+        [HttpGet]
+        public async Task<ActionResult> GetAllUsers() => Ok(await _mediator.Send(new GetAllUsers()));
 
-		[HttpGet("{userId}")]
-		public async Task<ActionResult> GetUserById(Guid userId)
-		{
-			var result = await _mediator.Send(new GetUserQuery(userId));
-			return Ok(result);
-		}
-
-		[HttpGet]
-		public async Task<ActionResult> GetAllUsers()
-		{
-			var result = await _mediator.Send(new GetAllUsersQuery());
-			return Ok(result);
-		}
-
-		[HttpPost]
-		public async Task<ActionResult<CreateUserResponse>> Create([FromBody] CreateUserRequest request,
-			CancellationToken cancellationToken)
-		{
-			var response = await _mediator.Send(request, cancellationToken);
-			return Ok(response);
-		}
-	}
+        [HttpPost]
+        public async Task<ActionResult<CreateUser>> Create([FromBody] CreateUser request,
+            CancellationToken cancellationToken) => Ok(await _mediator.Send(request, cancellationToken));
+    }
 }
