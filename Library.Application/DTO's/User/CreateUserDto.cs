@@ -1,12 +1,18 @@
-﻿using MediatR;
+﻿using Library.Domain.Enums;
 
-namespace Library.Application.User.Commands;
+namespace Library.Application.DTO_s.User;
 
-public class CreateUser : IRequest<Domain.Entities.User>, IRequest<IRequest>
+public class CreateUserDto
 {
+    public Guid UserId { get; set; }
     public string? Login { get; set; }
+
     public string? FirstName { get; set; }
+
     public string? LastName { get; set; }
     public string? Email { get; set; }
+
     public string? PasswordHash { get; set; }
+
+    public UserRole Role { get; set; }
 }
