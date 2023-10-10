@@ -5,7 +5,7 @@ namespace Library.Application.User.Commands;
 
 public class CreateUserCommand: IRequest<UserDto>
 {
-    public CreateUserDto User { get; set; }
+    public CreateUserDto User { get; }
     public CreateUserCommand(CreateUserDto user)
     {
         User = user;

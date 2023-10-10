@@ -3,8 +3,7 @@ using FluentValidation;
 using Library.Application.MappingProfiles;
 using Microsoft.Extensions.DependencyInjection;
 
-
-namespace Library.Application;
+namespace Library.Application.Extensions;
 
 public static class ServiceExtensions
 {

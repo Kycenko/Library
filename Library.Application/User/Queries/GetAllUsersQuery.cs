@@ -5,5 +5,5 @@ namespace Library.Application.User.Queries;
 
 public class GetAllUsersQuery : IRequest<List<UserDto>>
 {
-	
+
 }

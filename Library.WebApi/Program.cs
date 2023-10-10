@@ -1,5 +1,7 @@
 using Library.Application;
+using Library.Application.Extensions;
 using Library.Infrastructure;
+using Library.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigurePersistence(builder.Configuration);

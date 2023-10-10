@@ -18,7 +18,7 @@ namespace Library.Infrastructure.Context
 
 		public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
 		{
-			Database.EnsureCreated();
+			//Database.EnsureCreated();
 			Database.Migrate();
 		}
 
