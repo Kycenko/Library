@@ -1,7 +1,6 @@
 ﻿using MediatR;
-using System.Text.Json;
 
-namespace Library.Application.User.Commands
+namespace Library.Application.Features.User.Commands
 {
     public class DeleteUserCommand : IRequest
     {

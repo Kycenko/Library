@@ -1,6 +1,6 @@
 ﻿using Library.Domain.Common;
 
-namespace Library.Application.Repositories;
+namespace Library.Application.Repositories.Base;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {

@@ -9,8 +9,9 @@ public class UserProfile : Profile
 	public UserProfile()
 	{
 		CreateMap<Domain.Entities.User, UserDto>();
-		CreateMap<CreateUserDto, Domain.Entities.User>();
+        CreateMap<Domain.Entities.User, UpdateUserDto>();
+        CreateMap<CreateUserDto, Domain.Entities.User>();
 		CreateMap<UpdateUserDto, Domain.Entities.User>();
-		CreateMap<Domain.Entities.User, UpdateUserDto>();
+	
 	}
 }

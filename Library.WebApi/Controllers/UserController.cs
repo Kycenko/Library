@@ -1,5 +1,6 @@
 ﻿using Library.Application.DTO_s.User;
-using Library.Application.User.Commands;
+using Library.Application.Features.User.Commands;
+using Library.Application.Features.User.Queries;
 using Library.Application.User.Queries;
 using Library.Domain.Entities;
 using MediatR;

@@ -2,8 +2,9 @@
 using FluentValidation;
 using FluentValidation.Results;
 using Library.Application.DTO_s.User;
+using Library.Application.Features.User.Commands;
 using Library.Application.Repositories;
-using Library.Application.User.Commands;
+using Library.Application.Repositories.Base;
 using Library.Domain.Common.Exceptions;
 using Library.Domain.Entities;
 using MediatR;

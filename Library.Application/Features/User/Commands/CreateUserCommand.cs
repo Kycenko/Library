@@ -1,7 +1,7 @@
 ﻿using Library.Application.DTO_s.User;
 using MediatR;
 
-namespace Library.Application.User.Commands;
+namespace Library.Application.Features.User.Commands;
 
 public class CreateUserCommand: IRequest<UserDto>
 {
