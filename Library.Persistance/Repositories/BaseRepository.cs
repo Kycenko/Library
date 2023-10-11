@@ -12,7 +12,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 	protected BaseRepository(LibraryDbContext dbContext) => DbContext = dbContext;
 
 	public async Task Create(T entity) => await DbContext.AddAsync(entity);
-	
+
 	public void Update(T entity) => DbContext.Update(entity);
 
 	public void Delete(T entity) => DbContext.Remove(entity);

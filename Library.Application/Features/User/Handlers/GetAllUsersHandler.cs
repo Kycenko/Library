@@ -2,6 +2,7 @@
 using Library.Application.DTO_s.User;
 using Library.Application.Repositories;
 using Library.Application.User.Queries;
+using Library.Domain.Common.Exceptions;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -22,8 +23,16 @@ namespace Library.Application.User.Handlers
         }
         public async Task<List<UserDto>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
         {
-            var users = await _userRepository.GetAll(cancellationToken);
-            return _mapper.Map<List<UserDto>>(users);
+            try
+            {
+                var users = await _userRepository.GetAll(cancellationToken);
+                return _mapper.Map<List<UserDto>>(users);
+            }
+            catch (Exception ex)
+            {
+                throw new NotFoundException("Пользователи не найдены!", ex);
+            }
+
         }
     }
 }

@@ -1,10 +1,10 @@
-﻿using Library.Domain.Enums;
+﻿using Library.Domain.Common;
+using Library.Domain.Enums;
 
 namespace Library.Application.DTO_s.User;
 
 public class CreateUserDto
 {
-    public Guid UserId { get; set; }
     public string? Login { get; set; }
 
     public string? FirstName { get; set; }
@@ -15,4 +15,5 @@ public class CreateUserDto
     public string? PasswordHash { get; set; }
 
     public UserRole Role { get; set; }
+
 }
